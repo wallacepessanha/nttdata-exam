@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/Core/NTTData.Core/bin/Debug/net8.0
+/src/Core/NTTData.Core/obj
+/src/Services/NTTData.Sale.API/bin/Debug/net8.0
+/src/Services/NTTData.Sale.API/obj
+/src/Services/NTTData.Sale.Domain/bin/Debug/net8.0
+/src/Services/NTTData.Sale.Domain/obj
+/src/Services/NTTData.Sale.Infra/bin/Debug/net8.0
+/src/Services/NTTData.Sale.Infra/obj
