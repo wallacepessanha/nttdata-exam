@@ -7,6 +7,7 @@ using NTTData.Sale.API.Application.Commands.Handlers;
 using NTTData.Sale.API.Application.Events;
 using NTTData.Sale.API.Application.Events.Handlers;
 using NTTData.Sale.API.Configuration;
+using NTTData.Sale.API.Extensions;
 using NTTData.Sale.Domain.Repositories;
 using NTTData.Sale.Infra.Data.Repository;
 using System.Reflection;
@@ -48,6 +49,9 @@ builder.Services.AddScoped<IRequestHandler<SaleCreatedCommand, ValidationResult>
 builder.Services.AddScoped<IRequestHandler<SaleCancelledCommand, ValidationResult>, SaleCancelledCommandHandler>();
 builder.Services.AddScoped<IRequestHandler<SaleItemCancelledCommand, ValidationResult>, SaleItemCancelledCommandHandler>();
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -62,5 +66,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseExceptionHandler();
 
 app.Run();
